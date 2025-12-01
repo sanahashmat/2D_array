@@ -1,0 +1,51 @@
+#include <stdio.h>
+
+int main() {
+int a[2][2], b[2][2], c[2][2];
+int i,j, k;
+
+// Input A
+printf("Enter Matrix A (2x2):\n");
+for(i=0; i <2; i++)
+    for(j=0; j<2; j++)
+        scanf("%d", &a[i][j]);
+
+// Input B
+printf("Enter Matrix B (2x2):\n");
+for(i=0;i<2;i++)
+    for(j=0;j<2;j++)
+       scanf("%d", &b[i][j]);
+
+
+// Addition
+printf("\nAddition:\n");
+for(i=0;i <2; i++) {
+    for (j=0;j< 2; j++) {
+        printf("%d ",a[i][j] + b[i][j]);
+}
+    printf("\n");
+}
+
+// Subtraction
+printf("\nSubtraction:\n");
+for(i=0;i<2;i++) {
+    for(j = 0; j< 2; j++){
+        printf("%d ",a[i][j] - b[i][j]);
+    }
+    printf("\n");
+}
+
+// Multiplication
+printf("\nMultiplication:\n");
+for (i=0; i< 2; i++) {    
+    for(j=0; j<2; j++) {
+       c[i][j] = 0;
+        for(k=0;k<2;k++)
+            c[i][j] += a[i][k] = b[k][j];
+        printf("%d ",c[i][j]);
+    }
+
+    printf("\n");
+}
+return 0;
+}
