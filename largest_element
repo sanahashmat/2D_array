@@ -1,0 +1,44 @@
+#include <stdio.h> // Include standard input/output library
+
+// Function to find the maximum element in a matrix
+int findMax(int rows, int cols, int matrix[rows][cols]) {
+    int maxElement = matrix[0][0]; // Assume first element is the largest
+
+    // Iterate through each row
+    for (int i = 0; i < rows; i++) {
+        // Iterate through each column in the current row
+        for (int j = 0; j < cols; j++) {
+            // If current element is greater than the current max, update max
+            if (matrix[i][j] > maxElement) {
+                maxElement = matrix[i][j]; // Update the largest element
+            }
+        }
+    }
+    return maxElement; // Return the largest element found
+}
+
+int main() {
+    int R, C; // Variables for number of rows and columns
+
+    printf("Enter the number of rows: ");
+    scanf("%d", &R); // Get number of rows from user
+
+    printf("Enter the number of columns: ");
+    scanf("%d", &C); // Get number of columns from user
+
+    int matrix[R][C]; // Declare the matrix
+
+    printf("Enter the elements of the matrix:\n");
+    // Input matrix elements from the user
+    for (int i = 0; i < R; i++) {
+        for (int j = 0; j < C; j++) {
+            printf("Enter element [%d][%d]: ", i, j);
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+
+    // Call the function to find the largest element and print it
+    printf("The largest element in the matrix is: %d\n", findMax(R, C, matrix));
+
+    return 0; // Indicate successful execution
+}
