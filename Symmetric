@@ -1,0 +1,48 @@
+#include <stdio.h>
+
+#define SIZE 3 // Define the size of the square matrix
+
+// Function to check if the matrix is symmetric
+int isSymmetric(int matrix[SIZE][SIZE]) {
+    for (int i = 0; i < SIZE; i++) {
+        // Only need to check elements above the main diagonal (j > i)
+        for (int j = i + 1; j < SIZE; j++) {
+            if (matrix[i][j] != matrix[j][i]) {
+                return 0; // Not symmetric
+            }
+        }
+    }
+    return 1; // Symmetric
+}
+
+int main() {
+    // Example 1: A symmetric matrix
+    int matrix1[SIZE][SIZE] = {
+        {1, 2, 3},
+        {2, 4, 5},
+        {3, 5, 6}
+    };
+
+    // Example 2: A non-symmetric matrix
+    int matrix2[SIZE][SIZE] = {
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 9}
+    };
+
+    printf("Matrix 1 is ");
+    if (isSymmetric(matrix1)) {
+        printf("symmetric.\\n");
+    } else {
+        printf("not symmetric.\\n");
+    }
+
+    printf("Matrix 2 is ");
+    if (isSymmetric(matrix2)) {
+        printf("symmetric.\\n");
+    } else {
+        printf("not symmetric.\\n");
+    }
+
+    return 0;
+}
