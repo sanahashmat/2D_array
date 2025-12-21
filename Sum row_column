@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+#define ROWS 3
+#define COLS 3
+
+int main() {
+    int matrix[ROWS][COLS] = {
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 9}
+    };
+    int row, col, sum;
+
+    // Calculate sum of each row
+    printf("Row Sums:\n");
+    for (row = 0; row < ROWS; row++) {
+        sum = 0;
+        for (col = 0; col < COLS; col++) {
+            sum += matrix[row][col];
+        }
+        printf("Sum of Row %d = %d\n", row + 1, sum);
+    }
+
+    // Calculate sum of each column
+    printf("\nColumn Sums:\n");
+    for (col = 0; col < COLS; col++) {
+        sum = 0;
+        for (row = 0; row < ROWS; row++) {
+            sum += matrix[row][col];
+        }
+        printf("Sum of Column %d = %d\n", col + 1, sum);
+    }
+
+    return 0;
+}
